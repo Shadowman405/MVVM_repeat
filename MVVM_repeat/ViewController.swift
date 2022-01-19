@@ -13,18 +13,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondName: UILabel!
     @IBOutlet weak var age: UILabel!
     
-    var profile: Profile? {
+    var viewModel: ViewModel! {
         didSet {
-            guard let profile = profile else {return}
-            self.nameLabel.text = profile.name
-            self.secondName.text = profile.secondName
-            self.age.text = "\(profile.age)"
+            self.nameLabel.text = viewModel.name
+            self.secondName.text = viewModel.secondName
+            self.age.text = viewModel.age
         }
     }
+    
+//    var profile: Profile? {
+//        didSet {
+//            guard let profile = profile else {return}
+//            self.nameLabel.text = profile.name
+//            self.secondName.text = profile.secondName
+//            self.age.text = "\(profile.age)"
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        profile = Profile(name: "Bogdan", secondName: "Uncle", age: 69)
+        
+        viewModel = ViewModel()
     }
     
 
